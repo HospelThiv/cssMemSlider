@@ -2,7 +2,7 @@ html {
     margin: 0 auto;
     display: flex;
     justify-content: center;
-    background-image: url('../../cssMemSlider/assets/img/fon.jpg');
+    background-image: url('../cssMemSlider/assets/img/fon.jpg');
     background-size: 100% 100%;
     background-repeat: no-repeat;
     background-color: #000000;
