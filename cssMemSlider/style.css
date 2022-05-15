@@ -11,18 +11,19 @@ html {
 }
 
 body {
-    width: 75%;
-    height: 75%;
+    margin: 0;
+    width: 65%;
+    height: 65%;
 }
 
 .container {
     display: grid;
     grid-template-columns: auto auto;
-    /* grid-template-columns: 1fr repeat(5, 2%); */
     grid-template-columns: 1fr min-content;
     grid-template-rows: auto auto;
     align-items: center;
     justify-items: stretch;
+    row-gap: 10px;
 }
 
 h2 {
@@ -52,37 +53,52 @@ h2 {
 
 .slider_check:checked+.slider_image {
     display: block;
+    animation: slide_anim 0.7s;
 }
 
 .slider_check:checked+.slider_image+.text {
     display: block;
+    animation: slide_anim 0.7s;
 }
 
-.lable_div {
+.label_div {
     display: flex;
     gap: 3px;
 }
 
 label {
-    width: 20px;
-    height: 20px;
-    background-color: transparent;
+    width: 15px;
+    height: 15px;
     border-radius: 50%;
-    border: solid 3px #ffffff;
-    background-color: #ffffff;
+    cursor: pointer;
+    /* background-color: #ffffff;
+    cursor: pointer;
+    border: solid 2px #ffffff;
+    padding: 3px;
+    background: #ffffff content-box; */
+    border: solid 8px transparent;
+    padding: 3px;
+    box-shadow: inset 0 0 0 3px #ffffff;
+    background: #ffffff padding-box;
 }
 
-#slider_check1:checked~.lable_div>label:nth-child(1),
-#slider_check2:checked~.lable_div>label:nth-child(2),
-#slider_check3:checked~.lable_div>label:nth-child(3),
-#slider_check4:checked~.lable_div>label:nth-child(4),
-#slider_check5:checked~.lable_div>label:nth-child(5) {
+label:hover {
+    /* border-color: #907c96; */
+    box-shadow: inset 0 0 0 3px #907c96;
+    background-color: #907c96;
+}
+
+#slider_check1:checked~.label_div>label:nth-child(1),
+#slider_check2:checked~.label_div>label:nth-child(2),
+#slider_check3:checked~.label_div>label:nth-child(3),
+#slider_check4:checked~.label_div>label:nth-child(4),
+#slider_check5:checked~.label_div>label:nth-child(5) {
     background-color: transparent;
 }
 
 
 @media only screen and (max-device-width:1900px) {
-    .lable_div {
+    .label_div {
         padding-top: 10px;
         padding-bottom: 10px;
         justify-content: center
@@ -90,5 +106,20 @@ label {
 
     .text {
         grid-row: 3;
+    }
+
+    p {
+        margin-top: 0;
+        margin-bottom: 10px;
+    }
+}
+
+@keyframes slide_anim {
+    0% {
+        opacity: 0.4;
+    }
+
+    100% {
+        opacity: 1;
     }
 }
